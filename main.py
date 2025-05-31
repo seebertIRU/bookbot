@@ -2,9 +2,13 @@ from stats import get_book_text
 from stats import get_num_words
 from stats import count_lower_case_characters
 from stats import sort_dict_by_value
+import sys
 
 def main():
-    filepath="books/frankenstein.txt"
+    if len(sys.argv)<2:
+        print("Usage: python3 main.py <path_to_book>")
+        sys.exit(1)
+    filepath=sys.argv[1]
     book_text=get_book_text(filepath)
     words=get_num_words(book_text)
     print("============ BOOKBOT ============")
